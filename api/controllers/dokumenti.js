@@ -142,7 +142,7 @@ function upload(req, res) {
 }
 
 function fileUpload(name, file, cb) {
-    var path = '/var/www/ImperativBaza/BackendREST/documents/' + name + '';
+    var path = 'C:\\Users\\Ivan Šimić\\Desktop\\imperativ\\BackendREST' + name + '';
     var buffer = new Buffer(file.buffer);
     var random = new Date().getTime();
     fs.readFile(path, function(err, data) {
@@ -152,7 +152,7 @@ function fileUpload(name, file, cb) {
         } else if (data) {
             var changeName = name.split('.');
             var newName = changeName[0] + random + '.' + changeName[1];
-            path = '/var/www/ImperativBaza/BackendREST/documents/' + newName + '';
+            path = 'C:\\Users\\Ivan Šimić\\Desktop\\imperativ\\BackendREST' + newName + '';
             name = newName
                 //fileUpload(name, file, cb)
         }
@@ -210,7 +210,7 @@ function izmjenaDokumenta(req, res) {
 
 function download(req, res) {
     var filename = req.swagger.params.filename.value;
-    var img = fs.readFileSync('/var/www/ImperativBaza/BackendREST/documents/' + filename + '');
+    var img = fs.readFileSync('C:\\Users\\Ivan Šimić\\Desktop\\imperativ\\BackendREST' + filename + '');
 
     var file_extension = path.extname(filename).substring(1);
     console.log(file_extension);
